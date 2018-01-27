@@ -1,4 +1,4 @@
-import { Track } from "app/track";
+import { Track } from './track';
 
 export interface Album {
     
