@@ -1,0 +1,32 @@
+<div class="sign-in-form">
+  <h4>Sign in</h4>
+  <form #signInForm="ngForm" ng-submit="onSubmit(signInForm)" novalidate>
+    <div class="form-group">
+      <input class="form-control" name="username" required placeholder="User Name" ngModel #username="ngModel" />
+      <div [hidden]="username.valid || username.pristine" class="alert alert-danger" >
+        User Name is required.
+      </div>
+      <div>
+        <input class="form-control" name="password" required type="password" placeholder="password" ngModel #password="ngModel" />
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+          Password is required.
+        </div>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="rememberMe" ngModel /> Remember Me
+        </label>
+      </div>
+      <div *ngIf="formError" class="alert alert-danger">
+        {{ formError }}
+      </div>
+      <div *ngIf="!submitting">
+        <a routerLink="/register" routerLinkActive="active">Register</a>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </div>
+      <div *ngIf="submitting">
+        <p class="message">Signing In...</p>
+      </div>
+    </div>
+  </form>
+</div>

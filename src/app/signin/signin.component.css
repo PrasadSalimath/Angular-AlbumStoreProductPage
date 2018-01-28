@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    /* width: 75vw; */
+    background-image: url('/assets/opacity-zero.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+
+.sign-in-form {
+    min-width: 300px;
+    background-color: white;
+    opacity: .90;
+    padding: 20px;
+}
+
+a {
+    line-height: 32px;
+}
+
+button {
+    float: right;
+}
+
+,message {
+    float: right;
+}

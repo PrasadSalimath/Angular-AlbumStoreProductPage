@@ -9,12 +9,20 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { ProductService } from './product.service';
 import { ProductTracklistingComponent } from './product-tracklisting/product-tracklisting.component';
-import { ProductListComponent } from './product-list/product-list.component'
+import { ProductListComponent } from './product-list/product-list.component';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+import { SigninComponent } from './signin/signin.component'
 
 const appRoutes: Routes = [
-  { path: 'products', component: ProductListComponent},
-  { path: 'product/:id', component: ProductPageComponent},
-  { path: '', redirectTo: 'products', pathMatch: 'full'}
+  { path: 'signin', component: SigninComponent },
+  { path: 'authenticated', component: AuthenticatedUserComponent, 
+    children:[
+      { path: 'products', component: ProductListComponent},
+      { path: 'product/:id', component: ProductPageComponent},
+    ] },
+  { path: '', component: SigninComponent},
+  { path: '**', component: SigninComponent }
+  // { path: '', redirectTo: 'signin', pathMatch: 'full'}
 ]
 
 @NgModule({
@@ -23,7 +31,9 @@ const appRoutes: Routes = [
     ProductPageComponent,
     ProductDescriptionComponent,
     ProductTracklistingComponent,
-    ProductListComponent
+    ProductListComponent,
+    AuthenticatedUserComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
